@@ -3,7 +3,7 @@
 ## An intuitive collaborative drawing web based tool.
 Collaborative real-time drawing, sketching & painting
 
-Fast, light weight, easy to maintain.  Try the [demo] (http://draw.etherpad.org).
+Fast, light weight, easy to maintain.  Try the [demo](http://draw.etherpad.org).
 
 Demo
 ----
@@ -19,7 +19,7 @@ Installation
 
 Requirements
 ------------
- * [NodeJS] (http://nodejs.org/)
+ * [NodeJS](http://nodejs.org/)
  * Lib Cairo
  * Lib Jpeg
  * Lib Gif
@@ -30,4 +30,4 @@ Apache 2 License
 
 Donations
 ---------
-Donate to the [Etherpad Foundation] (http://etherpad.org/#links)
+Donate to the [Etherpad Foundation](http://etherpad.org/#links)
