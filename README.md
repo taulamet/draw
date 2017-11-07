@@ -11,11 +11,19 @@ Demo
 
 Installation
 ------------
-  1. Install Requirements. ``sudo apt-get update && sudo apt-get install libcairo2-dev  libjpeg62-turbo-dev libpango1.0-dev libgif-dev build-essential g++``
-  2. Install EtherDraw `` git clone git://github.com/JohnMcLear/draw.git ``
-  3. Enter the EtherDraw folder `` cd draw ``
-  4. Run EtherDraw `` bin/run.sh `` 
-  5. Make a drawing!  Open your browser and visit `` http://127.0.0.1:9002 ``
+
+On Debian Jessie.
+
+```bash
+# Install Requirements
+sudo apt-get update && sudo apt-get install git libcairo2-dev libjpeg62-turbo-dev libpango1.0-dev libgif-dev build-essential g++
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && sudo apt-get install -y nodejs
+git clone git://github.com/JohnMcLear/draw.git
+cd draw
+bin/run.sh 
+```
+
+Make a drawing! Open your browser and visit `` http://127.0.0.1:9002 ``
 
 Requirements
 ------------
