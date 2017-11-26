@@ -5,9 +5,9 @@
     "type": "git",
     "url": "http://github.com/JohnMcLear/draw.git"
   },
-  "version": "0.1.2",
+  "version": "0.2.0",
   "engines": {
-    "node": ">=0.12.x"
+    "node": ">=6.x.x"
   },
   "license": "Apache-2.0",
   "dependencies": {
