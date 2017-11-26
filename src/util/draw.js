@@ -1,4 +1,4 @@
-var paper = require('paper');
+var paper = require('paper-jsdom');
 var projects = require('./projects.js');
 var db = require('./db.js');
 
