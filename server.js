@@ -30,7 +30,7 @@ if(settings.ssl){
     cert: fs.readFileSync(settings.ssl.cert)
   };
   var app = express(options);
-  var server = https.createServer(options, app).listen(settings.port);
+  var server = https.createServer(options, app).listen(settings.ip, settings.port);
 }else{
   var app = express();
   var server = app.listen(settings.port);
@@ -84,7 +84,7 @@ app.use("/static", express.static(__dirname + '/src/static'));
 var io = socket.listen(server);
 io.sockets.setMaxListeners(0);
 
-console.log("Access Etherdraw at http://127.0.0.1:"+settings.port);
+console.log("Access Etherdraw at http://"+settings.ip+":"+settings.port);
 
 // SOCKET IO
 io.sockets.on('connection', function (socket) {
@@ -172,6 +172,9 @@ function subscribe(socket, data) {
   //  clearTimeout(closeTimer[room]);
   // }
 
+  // Send settings
+  socket.emit('settings', clientSettings);
+
   // Create Paperjs instance for this room if it doesn't exist
   var project = projects.projects[room];
   if (!project) {
@@ -205,7 +208,6 @@ function loadFromMemory(room, socket) {
   socket.emit('loading:start');
   var value = project.exportJSON();
   socket.emit('project:load', {project: value});
-  socket.emit('settings', clientSettings);
   socket.emit('loading:end');
 }
 

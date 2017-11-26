@@ -9,6 +9,7 @@
   "engines": {
     "node": ">=0.12.x"
   },
+  "license": "Apache-2.0",
   "dependencies": {
     "async": "*",
     "canvas": "^1.6.7",
