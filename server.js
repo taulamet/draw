@@ -12,8 +12,10 @@ var settings = require('./src/util/Settings.js'),
     socket = require('socket.io'),
     async = require('async'),
     fs = require('fs'),
+    cookieParser = require('cookie-parser');
     http = require('http'),
-    https = require('https');
+    https = require('https'),
+    session = require('express-session');
 
 /** 
  * SSL Logic and Server bindings
@@ -42,25 +44,11 @@ var clientSettings = {
 }
 
 // Config Express to server static files from /
-app.configure(function(){
-  app.use(express.static(__dirname + '/'));
-});
+app.use(express.static(__dirname + '/'));
 
 // Sessions
-app.use(express.cookieParser());
-app.use(express.session({secret: 'secret', key: 'express.sid'}));
-
-// Development mode setting
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-});
-
-// Production mode setting
-app.configure('production', function(){
-  app.use(express.errorHandler());
-});
-
-
+app.use(cookieParser());
+app.use(session({secret: 'secret', key: 'express.sid'}));
 
 
 // ROUTES
