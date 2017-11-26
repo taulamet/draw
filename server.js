@@ -30,7 +30,7 @@ if(settings.ssl){
     cert: fs.readFileSync(settings.ssl.cert)
   };
   var app = express(options);
-  var server = https.createServer(options, app).listen(settings.ip, settings.port);
+  var server = https.createServer(options, app).listen(settings.port);
 }else{
   var app = express();
   var server = app.listen(settings.port);
