@@ -26,9 +26,38 @@
 	  |@licend  The above is the entire license notice
 	  for the JavaScript code in this page.|
 	  */
+
+	  /* Get the documentElement (<html>) to display the page in fullscreen */
+var elem = document.documentElement;
+
+/* View in fullscreen */
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) { /* Firefox */
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE/Edge */
+    document.msExitFullscreen();
+  }
+}
 	</script>
         <meta charset="utf-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <meta name="viewport" content="width=device-width, initial-scale=.68, maximum-scale=.68, user-scalable=0">
         <link rel="shortcut icon" href="../static/img/favicon.ico">
 
         <script src='../socket.io/socket.io.js'></script>
@@ -43,9 +72,9 @@
     </head>
     <body>
 
-        <div id="editbar" class="toolbar">
+      <div id="editbar" class="toolbar">
             <div id="overlay">
-                <div id="overlay-inner"></div>
+              <div id="overlay-inner"></div>
             </div>
             <ul class="menu_left">
                 <!-- paint brush -->
@@ -98,6 +127,8 @@
                 </li>
             </ul>
             <ul class="menu_right">
+	<button onclick="openFullscreen();">Completa</button>
+	<button onclick="closeFullscreen();">Normal</button>
 
                 <!-- settings -->
                 <li data-key="settings">
